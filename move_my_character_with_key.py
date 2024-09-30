@@ -1,43 +1,11 @@
 from pico2d import *
-
-
-# fill here
-
-
-character = load_image('animation_sheet.png')
-
-
-def handle_events():
-    global running
-
-    # fill here
-
-    events = get_events()
-    for event in events:
-        if event.type == SDL_QUIT:
-            running = False
-        # fill here
-
-
-running = True
+open_canvas()
+character = load_image('MySprite.png')
 frame = 0
-
-# fill here
-
-
-
-while running:
-    clear_canvas()
-
-    # fill here
-
-    update_canvas()
-    handle_events()
-    frame = (frame + 1) % 8
-    delay(0.05)
-
+for x in range(0, 800, 10):
+ clear_canvas()
+ character.clip_draw(frame * 100, 0, 100, 100, x, 90)
+ update_canvas()
+ frame = (frame + 1) % 8
+ delay(0.05)
 close_canvas()
-
-
-
-
